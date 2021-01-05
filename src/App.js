@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 //import ReactDOM from "react-dom";
-import Work from "./components/work";
+//import Work from "./components/work";
 import Info from "./components/info";
-import Education from "./components/education";
+//import Education from "./components/education";
 //import Resume from "./components/Resume";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { form: "" };
+    this.state = { name: "" };
+    this.submitForm = (e) => {
+      e.preventDefault();
+      alert(this.state.name);
+    };
   }
+  dataTransfer = (e) => {
+    this.setState({ name: e });
+  };
   // handleChange = (e) => {
   //   this.setState({ form: e.target.value });
   // };
@@ -24,11 +31,14 @@ class App extends Component {
   render() {
     //const { form } = this.state;
     return (
-      <div className="App">
-        <Work />
-        <Info />
-        <Education />
-      </div>
+      <form onSubmit={this.submitForm} className="App">
+        <Info dataTransfer={this.dataTransfer} />
+        <button>ENTER</button>
+      </form>
+      // <Work />
+      //
+      // <Education />
+      // <button>ENTER</button>
       // <form onSubmit={this.onSubmitForm}>
       //   <input
       //     type="text"

@@ -4,7 +4,7 @@
 //date from start and to the end
 const Work = (props) => {
   return (
-    <form>
+    <div>
       <h1>Work Experience</h1>
       <span>
         <p>Company:</p>
@@ -26,7 +26,7 @@ const Work = (props) => {
         <p>End Date:</p>
         <input type="text"></input>
       </span>
-    </form>
+    </div>
   );
 };
 export default Work;

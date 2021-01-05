@@ -3,7 +3,7 @@
 //date of study
 const Education = (props) => {
   return (
-    <form>
+    <div>
       <h1>Education:</h1>
       <span>
         <p>School:</p>
@@ -17,7 +17,7 @@ const Education = (props) => {
         <p>Date:</p>
         <input type="text"></input>
       </span>
-    </form>
+    </div>
   );
 };
 export default Education;
