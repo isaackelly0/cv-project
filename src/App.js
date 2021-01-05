@@ -1,25 +1,29 @@
 import React, { Component } from "react";
 //import ReactDOM from "react-dom";
 //import Work from "./components/work";
-import Info from "./components/info";
+//import Info from "./components/info";
 //import Education from "./components/education";
 //import Resume from "./components/Resume";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { name: "" };
+    this.state = {};
     this.submitForm = (e) => {
       e.preventDefault();
-      alert(this.state.name);
+      //alert(this.state);
+      for (const key in this.state) {
+        console.log(key + ":" + this.state[key]);
+      }
     };
   }
   dataTransfer = (e) => {
     this.setState({ name: e });
   };
-  // handleChange = (e) => {
-  //   this.setState({ form: e.target.value });
-  // };
+  handleChange = (e) => {
+    const target = e.target;
+    this.setState({ [target.name]: target.value });
+  };
   // onSubmitForm = (e) => {
   //   e.preventDefault();
   //   ReactDOM.render(
@@ -32,7 +36,13 @@ class App extends Component {
     //const { form } = this.state;
     return (
       <form onSubmit={this.submitForm} className="App">
-        <Info dataTransfer={this.dataTransfer} />
+        <input
+          type="text"
+          onChange={this.handleChange}
+          name="firstName"
+        ></input>
+        <input type="text" onChange={this.handleChange} name="email"></input>
+        <input type="text" onChange={this.handleChange} name="number"></input>
         <button>ENTER</button>
       </form>
       // <Work />
