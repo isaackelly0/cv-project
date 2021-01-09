@@ -5,7 +5,7 @@ class Resume extends Component {
     this.state = props;
   }
   render() {
-    return <p>{this.state.form}</p>;
+    return <p>{this.props}</p>;
   }
 }
 export default Resume;
