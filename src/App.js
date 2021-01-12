@@ -1,20 +1,44 @@
 import React, { Component } from "react";
-//import ReactDOM from "react-dom";
-//import Resume from "./components/Resume";
+import ReactDOM from "react-dom";
+import Resume from "./components/Resume";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { name: "" };
+    this.state = { form: { display: "block" }, resume: { display: "none" } };
+    this.toggle = (e) => {
+      if (e === "true") {
+        this.setState({
+          form: { display: "none" },
+          resume: { display: "flex" },
+        });
+      } else {
+        this.setState({
+          form: { display: "block" },
+          resume: { display: "none" },
+        });
+      }
+    };
     this.submitForm = (e) => {
       e.preventDefault();
-      for (const key in this.state) {
-        console.log(key + " : " + this.state[key]);
-      }
-      // ReactDOM.render(
-      //   <Resume obj={this.state} />,
-      //   document.getElementById("root")
-      //);
+      this.toggle("true");
+      ReactDOM.render(
+        <Resume
+          name={this.state.name}
+          email={this.state.email}
+          number={this.state.number}
+          school={this.state.school}
+          study={this.state.study}
+          dateOfStudy={this.state.dateOfStudy}
+          company={this.state.company}
+          position={this.state.position}
+          tasks={this.state.tasks}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          callback={this.toggle}
+        />,
+        document.getElementById("resume")
+      );
     };
   }
   handleChange = (e) => {
@@ -25,7 +49,11 @@ class App extends Component {
     //const { form } = this.state;
     return (
       <div>
-        <form onSubmit={this.submitForm} className="App">
+        <form
+          onSubmit={this.submitForm}
+          className="App"
+          style={this.state.form}
+        >
           <p>Name:</p>
           <input type="text" onChange={this.handleChange} name="name"></input>
           <p>Email:</p>
@@ -74,6 +102,9 @@ class App extends Component {
           ></input>
           <button>ENTER</button>
         </form>
+        <span id="resume" style={this.state.resume}>
+          <button style={this.state.resume}>EDIT</button>
+        </span>
       </div>
     );
   }
