@@ -53,6 +53,7 @@ class App extends Component {
           onSubmit={this.submitForm}
           className="App"
           style={this.state.form}
+          autoComplete="off"
         >
           <div>
             <h1>Contact Info</h1>
