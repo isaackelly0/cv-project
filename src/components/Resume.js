@@ -12,19 +12,19 @@ class Resume extends Component {
     return (
       <span>
         <div className="row">
-          <h1>Contact Info</h1>
+          <h3>Contact Info</h3>
           <p className="col-lg-4 col-md-6">Name: {this.props.name}</p>
           <p className="col-lg-4 col-md-6">Email: {this.props.email}</p>
           <p className="col-lg-4 col-md-6">Phone Number: {this.props.number}</p>
         </div>
         <div className="row">
-          <h1>Education</h1>
+          <h3>Education</h3>
           <p className="col-lg-4 col-md-6">School: {this.props.school}</p>
-          <p className="col-lg-4 col-md-6">Field of Study{this.props.study}</p>
-          <p className="col-lg-4 col-md-6">Study Date{this.props.dateOfStudy}</p>
+          <p className="col-lg-4 col-md-6">Field of Study: {this.props.study}</p>
+          <p className="col-lg-4 col-md-6">Study Date: {this.props.dateOfStudy}</p>
         </div>
         <div className="row">
-          <h1>Work History</h1>
+          <h3>Work History</h3>
           <p className="col-lg-4 col-md-6">Company Name: {this.props.company}</p>
           <p className="col-lg-4 col-md-6">Position: {this.props.position}</p>
           <p className="col-lg-4 col-md-6">Tasks performed: {this.props.tasks}</p>

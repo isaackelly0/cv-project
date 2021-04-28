@@ -9,11 +9,13 @@ class App extends Component {
     this.state = { form: { display: "block" }, resume: { display: "none" } };
     this.toggle = (e) => {
       if (e === "true") {
+        document.querySelector("body").style.cssText = 'background-color:white';
         this.setState({
           form: { display: "none" },
           resume: { display: "flex" },
         });
       } else {
+        document.querySelector("body").style.cssText = 'background-color:#1bb6c9';
         this.setState({
           form: { display: "block" },
           resume: { display: "none" },
@@ -50,13 +52,17 @@ class App extends Component {
     //const { form } = this.state;
     return (
       <div className="container">
+        <header>
+            <h1>Resume</h1>
+          </header>
         <form
           onSubmit={this.submitForm}
           style={this.state.form}
           autoComplete="off"
         >
+          
           <div className="row">
-            <h1>Contact Info</h1>
+            <h3>Contact Info</h3>
             <span className="col-lg-4 col-md-6">
               <p>Name:</p>
               <input type="text" onChange={this.handleChange} name="name"></input>
@@ -75,11 +81,12 @@ class App extends Component {
                 type="text"
                 onChange={this.handleChange}
                 name="number"
+                placeholder="(000)-000-0000"
               ></input>
             </span>
           </div>
           <div className="row">
-            <h1>Education</h1>
+            <h3>Education</h3>
             <span className="col-lg-4 col-md-6">
               <p>School Name:</p>
               <input
@@ -102,11 +109,12 @@ class App extends Component {
                 type="text"
                 onChange={this.handleChange}
                 name="dateOfStudy"
+                placeholder="YYYY-YYYY"
               ></input>
             </span>
           </div>
           <div className="row">
-            <h1>Work History</h1>
+            <h3>Work History</h3>
             <span className="col-lg-4 col-md-6">
               <p>Company Name:</p>
               <input
@@ -137,6 +145,7 @@ class App extends Component {
               type="text"
               onChange={this.handleChange}
               name="startDate"
+              placeholder="MM/DD/YYYY"
               ></input>
             </span>
             <span className="col-lg-4 col-md-6">
@@ -145,10 +154,12 @@ class App extends Component {
               type="text"
               onChange={this.handleChange}
               name="endDate"
+              placeholder="MM/DD/YYYY"
               ></input>
             </span> 
           </div>
-          <button className="btn-success btn">ENTER</button>
+          <div class="row"><span className=" button col-md-6 col-sm-5 offset-md-6 offset-lg-7 button"><button className="btn-success btn">ENTER</button>
+          </span></div>
         </form>
         <span id="resume" style={this.state.resume}>
         </span>

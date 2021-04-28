@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap');
+.button{
+    display: flex;
+    justify-content: flex-start;
+}
+body{
+    background-color: #1bb6c9;
+}
+.row{
+    margin-bottom: 4%;
+}
+h1, h3, button{
+    font-family: 'Antonio', sans-serif;
+}
+@media only screen and (min-width: 720px){
+    .button{
+        justify-content: center;
+    }
+}
